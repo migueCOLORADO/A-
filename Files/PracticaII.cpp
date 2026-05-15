@@ -95,9 +95,8 @@ public:
     // ==========================================
 
     void mostrarGrafo() {   // Funcion | Muestra el grafo completo en formato de lista de adyacencia
-        cout << "\n========================================" << endl;
-        cout << " Red Social EAFIT | Lista de Adyacencia" << endl;
-        cout << "========================================\n" << endl;
+        cout << "---------------------------------------------------\n" << endl;
+        cout << "Cargando listado de amistades de cada estudiante..." << endl;
 
         if (vertices.empty()) {     // Si no hay vertices, el grafo esta vacio
             cout << "  La red social esta vacia." << endl;
@@ -107,15 +106,15 @@ public:
         for (auto& par : vertices) {    // Recorrer cada par (nombre, vertice) del mapa
             // par.first es el nombre del estudiante (clave del mapa)
             // par.second es la estructura Vertice completa
-            cout << "  " << par.first << " -> [ ";
+            cout << "-- " << par.first << " -> [ ";
             for (int i = 0; i < par.second.adyacentes.size(); i++) {
                 cout << par.second.adyacentes[i];
                 if (i < par.second.adyacentes.size() - 1) cout << ", ";    // Separar con coma excepto el ultimo
             }
             cout << " ]" << endl;
         }
-        cout << "\n  Total de estudiantes: " << obtenerNumeroVertices() << endl;
-        cout << "  Total de amistades:   " << obtenerNumeroAristas() << endl;
+        cout << "\n-- Total de estudiantes: " << obtenerNumeroVertices() << endl;
+        cout << "-- Total de amistades:   " << obtenerNumeroAristas() << endl;
         cout << endl;
     }
 
@@ -177,8 +176,8 @@ public:
             return;
         }
 
-        cout << "\n--- BFS (Busqueda en Anchura) desde \"" << inicio << "\" ---" << endl;
-        cout << "  Recorrido: ";
+        cout << "\n-- BFS (Busqueda en Anchura) desde \"" << inicio << "\"" << endl;
+        cout << "-- Recorrido: ";
 
         unordered_set<string> visitados;    // Conjunto | Guarda los nombres de los estudiantes ya visitados para no repetirlos
         queue<string> cola;                 // Cola | Estructura FIFO que determina el orden de visita | Primero en entrar, primero en salir
@@ -218,8 +217,8 @@ public:
             return;
         }
 
-        cout << "\n--- DFS (Busqueda en Profundidad) desde \"" << inicio << "\" ---" << endl;
-        cout << "  Recorrido: ";
+        cout << "\n-- DFS (Busqueda en Profundidad) desde \"" << inicio << "\"" << endl;
+        cout << "-- Recorrido: ";
 
         unordered_set<string> visitados;    // Conjunto | Guarda los nombres de los estudiantes ya visitados
         DFSAuxiliar(inicio, visitados);     // Llamar al metodo recursivo auxiliar que realiza el recorrido
@@ -252,9 +251,8 @@ private:
 int main() {
     GrafoNoDirigido red;    // Crear la red social como un grafo no dirigido vacio
 
-    cout << "\n===========================================================" << endl;
-    cout << " EAFIT SOCIAL NETWORK | Prototipo de Red Social Estudiantil" << endl;
-    cout << "===========================================================" << endl;
+    cout << "------------------------------------------------------------------------\n" << endl;
+    cout << "| ¡Bienvenid@ a EAFIT Interactiva! | Prototipo de Red Social" << endl;
 
     // --- Agregar estudiantes (vertices) a la red ---
     cout << "\n>> Registrando estudiantes en la red social...\n" << endl;
@@ -266,7 +264,7 @@ int main() {
     red.agregarVertice("Isabella");
     red.agregarVertice("Juan");
     red.agregarVertice("Camila");
-    cout << "  Se registraron 8 estudiantes." << endl;
+    cout << "-- Se registraron 8 estudiantes." << endl;
 
     // --- Agregar amistades (aristas no dirigidas) entre estudiantes ---
     cout << "\n>> Creando amistades entre estudiantes...\n" << endl;
@@ -280,7 +278,7 @@ int main() {
     red.agregarArista("Valentina", "Camila");        // Valentina y Camila son amigas
     red.agregarArista("Santiago", "Isabella");       // Santiago e Isabella son amigos
     red.agregarArista("Juan", "Camila");             // Juan y Camila son amigos
-    cout << "  Se crearon 10 amistades." << endl;
+    cout << "-- Se crearon 10 amistades." << endl;
 
     // --- Mostrar el grafo completo como lista de adyacencia ---
     red.mostrarGrafo();
@@ -296,24 +294,24 @@ int main() {
     cout << "\n>> Consultas estructurales...\n" << endl;
 
     // Verificar existencia de vertices
-    cout << "  ¿Existe \"Alejandro\"?  -> " << (red.existeVertice("Alejandro") ? "Si" : "No") << endl;
-    cout << "  ¿Existe \"Pedro\"?      -> " << (red.existeVertice("Pedro") ? "Si" : "No") << endl;
+    cout << "-- ¿Existe \"Alejandro\"?  -> " << (red.existeVertice("Alejandro") ? "Si" : "No") << endl;
+    cout << "-- ¿Existe \"Pedro\"?      -> " << (red.existeVertice("Pedro") ? "Si" : "No") << endl;
 
     // Verificar adyacencia entre vertices
-    cout << "\n  ¿Son amigos Alejandro y Maria?     -> " << (red.sonAdyacentes("Alejandro", "Maria") ? "Si" : "No") << endl;
-    cout << "  ¿Son amigos Alejandro y Isabella?  -> " << (red.sonAdyacentes("Alejandro", "Isabella") ? "Si" : "No") << endl;
+    cout << "\n-- ¿Son amigos Alejandro y Maria?     -> " << (red.sonAdyacentes("Alejandro", "Maria") ? "Si" : "No") << endl;
+    cout << "-- ¿Son amigos Alejandro y Isabella?  -> " << (red.sonAdyacentes("Alejandro", "Isabella") ? "Si" : "No") << endl;
 
     // Consultar grado de un vertice | Numero de amigos de cada estudiante
-    cout << "\n  Grado de Alejandro (amigos): " << red.obtenerGrado("Alejandro") << endl;
-    cout << "  Grado de Maria (amigos):     " << red.obtenerGrado("Maria") << endl;
-    cout << "  Grado de Camila (amigos):    " << red.obtenerGrado("Camila") << endl;
+    cout << "\n-- Grado de Alejandro (amigos): " << red.obtenerGrado("Alejandro") << endl;
+    cout << "-- Grado de Maria (amigos):     " << red.obtenerGrado("Maria") << endl;
+    cout << "-- Grado de Camila (amigos):    " << red.obtenerGrado("Camila") << endl;
 
     // Consultar totales del grafo
-    cout << "\n  Total de estudiantes: " << red.obtenerNumeroVertices() << endl;
-    cout << "  Total de amistades:   " << red.obtenerNumeroAristas() << endl;
+    cout << "\n-- Total de estudiantes: " << red.obtenerNumeroVertices() << endl;
+    cout << "-- Total de amistades:   " << red.obtenerNumeroAristas() << endl;
 
     // --- Recorridos del grafo ---
-    cout << "\n>> Recorridos del grafo...\n" << endl;
+    cout << "\n>> Recorridos del grafo..." << endl;
 
     // BFS | Busqueda en Anchura desde Alejandro
     // Explora por niveles: primero los amigos directos de Alejandro, luego los amigos de esos amigos, etc.
@@ -322,10 +320,6 @@ int main() {
     // DFS | Busqueda en Profundidad desde Alejandro
     // Explora lo mas profundo posible por cada rama antes de devolverse
     red.DFS("Alejandro");
-
-    cout << "\n===========================================================" << endl;
-    cout << " Fin del programa" << endl;
-    cout << "===========================================================" << endl;
 
     return 0;   // Indica que el programa finalizo correctamente
 }

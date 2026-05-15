@@ -1,5 +1,4 @@
-# Practica - 02 | A*
-
+# Practica - 02 | EAFIT Interactiva
 ## Tabla de Contenidos
 1. [Introducción](#introducción)
 2. [Presentación del Problema](#presentación-del-problema)
