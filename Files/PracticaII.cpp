@@ -1,8 +1,11 @@
 // ===================================================================================
-// Practica II | EAFIT Social Network | Red Social Universitaria
+// Practica II | EAFIT Interactiva | Prototipo de Red Social con Grafos No Dirigidos
 // Materia: SI2001-10 Estructuras de Datos y Algoritmos 1
 // Docente: Diego Ivan Cruz Ordieres
+// Estudiantes: Miguel Angel Colorado Castaño | Alejandro Soto Bermeo
 // ===================================================================================
+
+// Descripcion general:
 // Este programa implementa un grafo no dirigido usando listas de adyacencia
 // El escenario es una red social de estudiantes de la Universidad EAFIT
 // Cada estudiante es un vertice (nodo) y cada amistad es una arista no dirigida
@@ -10,6 +13,7 @@
 // entonces B es amigo de A. Es decir, la relacion se lee en ambos sentidos
 // ===================================================================================
 
+// Importamos librerias
 #include <iostream>     // Libreria | Permite usar cout y cin para entrada/salida
 #include <vector>       // Libreria | Permite usar el contenedor dinamico vector
 #include <string>       // Libreria | Permite usar el tipo string para los nombres
@@ -29,7 +33,6 @@ struct Vertice {
     // | INFO | ¿Por que un vector de strings y no de punteros? Porque usamos los nombres como identificadores unicos
     // y el mapa del grafo nos permite acceder a cualquier vertice por su nombre en tiempo O(1)
 };
-
 
 // ==========================================
 // Clase GrafoNoDirigido | Clase central del programa
